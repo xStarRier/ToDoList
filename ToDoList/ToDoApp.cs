@@ -63,7 +63,7 @@ public class ToDoApp
         Console.Clear();
         foreach (var task in tasks) 
         { 
-            Console.WriteLine($"{task.Id}.) Navn: {task.TaskName}");
+            Console.WriteLine($"{task.Id}.) {task.TaskName}");
         }
         int input = Convert.ToInt32(Console.ReadLine()) - 1;
         ViewTasks(input);
@@ -94,6 +94,5 @@ public class ToDoApp
         }
         Console.ReadKey();
         Console.ResetColor();
-        
     }
 }
