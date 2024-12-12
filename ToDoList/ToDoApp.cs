@@ -47,9 +47,9 @@ public class ToDoApp
                     break;
                 case "2":
                     DeleteTasks();
-
                     break;
                 case "3":
+                    AddTasks();
                     break;
                 case "4":
                     LightShow();
@@ -90,15 +90,35 @@ public class ToDoApp
         Console.WriteLine("Which task would you like to delete?");
         int input = Convert.ToInt32(Console.ReadLine()) - 1;
         tasks.RemoveAt(input);
+        Console.WriteLine("Click any key to see the remaining tasks");
         Console.ReadKey();
+        ViewTasksMenu();
 
     }
 
+    public void AddTasks()
+    {
+       int id = tasks.Count + 1;
+       Console.WriteLine("Name");
+       var name = Console.ReadLine();
+       Console.WriteLine("Description");
+       var description = Console.ReadLine();
+       Console.WriteLine("Catagory");
+       var catagory = Console.ReadLine();
+       Console.WriteLine("Priority");
+       var priority = Console.ReadLine();
+       Console.WriteLine("Status");
+       var status = Console.ReadLine();
+       tasks.Add(new Task(id,name,description,catagory,priority,status));
+       Console.WriteLine("See all tasks");
+       Console.ReadKey();
+       ViewTasksMenu();
+    }
     public void LightShow()
     {
         Console.Clear();
         var consoleColors = Enum.GetValues(typeof(ConsoleColor));
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 1000; i++)
         {
             Console.Clear();
             Random rnd = new Random();
