@@ -36,7 +36,7 @@ public class ToDoApp
             Console.WriteLine("1.) View tasks");
             Console.WriteLine("2.) Delete task");
             Console.WriteLine("3.) Add a new task");
-            Console.WriteLine("4.) Don't choose this");
+            Console.WriteLine("4.) Break Time (illegal activity) ");
             Console.WriteLine("q. Exit");
             Console.WriteLine("-----------------------");
             var input = Console.ReadLine();
@@ -88,8 +88,6 @@ public class ToDoApp
             Console.Clear();
             Random rnd = new Random();
             Console.BackgroundColor = (ConsoleColor)consoleColors.GetValue(rnd.Next(0, consoleColors.Length));
-            //Console.ForegroundColor = (ConsoleColor)consoleColors.GetValue(rnd.Next(0, consoleColors.Length));
-            //Console.WriteLine("Light show");
             Thread.Sleep(100);
         }
         Console.ReadKey();
