@@ -1,6 +1,3 @@
-using System.Drawing;
-using System.Xml.Schema;
-
 namespace ToDoList;
 
 public class ToDoApp
@@ -36,7 +33,7 @@ public class ToDoApp
             Console.WriteLine("1.) View tasks");
             Console.WriteLine("2.) Delete task");
             Console.WriteLine("3.) Add a new task");
-            Console.WriteLine("4.) Break Time (illegal activity) ");
+            RgbMenuItem();
             Console.WriteLine("q. Exit");
             Console.WriteLine("-----------------------");
             var input = Console.ReadLine();
@@ -127,5 +124,22 @@ public class ToDoApp
         }
         Console.ReadKey();
         Console.ResetColor();
+    }
+
+    public void RgbMenuItem()
+    {
+         var consoleColors = Enum.GetValues(typeof(ConsoleColor));
+         for (int i = 0; i < 60; i++)
+         {
+             Random rnd = new Random();
+             Console.ForegroundColor = (ConsoleColor)consoleColors.GetValue(rnd.Next(0, consoleColors.Length));
+             Console.SetCursorPosition(0, Console.CursorTop);
+             Console.WriteLine("4.) Break Time (illegal activity) ");     
+             Console.SetCursorPosition(0, Console.CursorTop - 1);
+             Thread.Sleep(50);
+             
+         }
+         Console.WriteLine();
+         Console.ResetColor();
     }
 }
