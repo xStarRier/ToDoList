@@ -46,6 +46,8 @@ public class ToDoApp
                     ViewTasksMenu();
                     break;
                 case "2":
+                    DeleteTasks();
+
                     break;
                 case "3":
                     break;
@@ -77,6 +79,19 @@ public class ToDoApp
         Console.WriteLine($"Navn: {task.TaskName}\nBeskrivelse: {task.TaskDescription}\nKategori: {task.TaskCategory}\nPrioritet: {task.TaskPriority}\nStatus: {task.TaskStatus}");
         Console.WriteLine("-----------------------");
         Console.ReadKey();
+    }
+    public void DeleteTasks()
+    {
+        Console.Clear();
+        foreach (var task in tasks)
+        {
+            Console.WriteLine($"{task.Id}.) {task.TaskName}");
+        }
+        Console.WriteLine("Which task would you like to delete?");
+        int input = Convert.ToInt32(Console.ReadLine()) - 1;
+        tasks.RemoveAt(input);
+        Console.ReadKey();
+
     }
 
     public void LightShow()
